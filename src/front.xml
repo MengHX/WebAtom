@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!--suppress Struts2ModelInspection -->
+<struts>
+
+    <package name="front" namespace="/" extends="struts-default">
+        <action name="office" class="webAction" method="office">
+             <result>/WEB-INF/page/web/office.jsp</result>
+        </action>
+        <action name="dining" class="webAction" method="dining">
+            <result>/WEB-INF/page/web/dining.jsp</result>
+        </action>
+        <action name="convenience" class="webAction" method="convenience">
+            <result>/WEB-INF/page/web/convenience.jsp</result>
+        </action>
+        <action name="contract" class="webAction" method="contract">
+             <result>/WEB-INF/page/web/contract.jsp</result>
+        </action>
+        <action name="about" class="webAction" method="about">
+            <result>/WEB-INF/page/web/about.jsp</result>
+        </action>
+        <action name="contact" class="webAction" method="contact">
+            <result>/WEB-INF/page/web/contact.jsp</result>
+        </action>
+        <action name="news" class="webAction" method="news">
+            <result>/WEB-INF/page/web/news.jsp</result>
+        </action>
+    </package>
+</struts>

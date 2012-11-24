@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!--suppress Struts2ModelInspection -->
+<struts>
+
+    <package name="adminlogin" namespace="/admin" extends="struts-default">
+        <default-action-ref name="login"/>
+        <global-results>
+            <result name="login">/WEB-INF/page/public/login.jsp</result>
+            <result name="loginSuccess">/WEB-INF/page/frame/index.jsp</result>
+        </global-results>
+        <action name="userLogin" class="loginAction" method="userLogin"/>
+        <action name="login" class="loginAction" method="loginPage"/>
+        <action name="logout" class="loginAction" method="logout"/>
+    </package>
+
+    <package name="admin" namespace="/admin" extends="struts-default">
+        <!--
+        <interceptors>
+            <interceptor name="needLoginInterceptor" class="com.vcher.coffee.interceptor.loginInterceptor"/>
+            <interceptor-stack name="needLogin">
+                <interceptor-ref name="needLoginInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="needLogin"/>
+        -->
+        <global-results>
+            <result name="login">/WEB-INF/page/public/login.jsp</result>
+            <result name="oprSuccess">/WEB-INF/page/public/success.jsp</result>
+            <result name="oprFailed">/WEB-INF/page/public/error.jsp</result>
+        </global-results>
+        <action name="*_*">
+            <result>/WEB-INF/page/{1}/{2}.jsp</result>
+        </action>
+        <!--图片相关功能-->
+        <action name="listWebImage" class="webImageAction" method="list">
+              <result>/WEB-INF/page/image/list.jsp</result>
+        </action>
+        <action name="mdyWebImage" class="webImageAction" method="mdy"/>
+        <action name="delWebImage" class="webImageAction" method="del"/>
+        <!--产品相关功能-->
+        <action name="addProduct" class="productAction" method="add"/>
+        <action name="delProduct" class="productAction" method="del"/>
+        <action name="showProduct" class="productAction" method="show">
+            <result name="show">/WEB-INF/page/product/show.jsp</result>
+        </action>
+        <action name="mdyProduct" class="productAction" method="mdy">
+            <result name="add">/WEB-INF/page/product/add.jsp</result>
+        </action>
+        <action name="searchProduct" class="productAction" method="search">
+            <result name="list">/WEB-INF/page/product/list.jsp</result>
+        </action>
+        <action name="addProductType" class="productAction" method="addType"/>
+        <action name="delProductType" class="productAction" method="delType"/>
+        <!--新闻相关功能-->
+        <action name="addNews" class="newsAction" method="add"/>
+        <action name="delNews" class="newsAction" method="del"/>
+        <action name="showNews" class="newsAction" method="show">
+            <result name="show">/WEB-INF/page/news/show.jsp</result>
+        </action>
+        <action name="mdyNews" class="newsAction" method="mdy">
+            <result name="add">/WEB-INF/page/news/add.jsp</result>
+        </action>
+        <action name="searchNews" class="newsAction" method="search">
+            <result name="list">/WEB-INF/page/news/list.jsp</result>
+        </action>
+        <action name="addNewsType" class="newsAction" method="addType"/>
+        <action name="delNewsType" class="newsAction" method="delType"/>
+        <!--留言相关功能-->
+        <action name="delMessage" class="messageAction" method="del"/>
+        <action name="showMessage" class="messageAction" method="show">
+            <result name="show">/WEB-INF/page/message/show.jsp</result>
+        </action>
+        <action name="searchMessage" class="messageAction" method="search">
+            <result name="list">/WEB-INF/page/message/list.jsp</result>
+        </action>
+        <!--大图相关功能-->
+        <action name="addFrontImage" class="webImageAction" method="add"/>
+        <action name="showFrontImage" class="webImageAction" method="show">
+            <result name="show">/WEB-INF/page/frontImage/show.jsp</result>
+        </action>
+        <action name="searchFrontImage" class="webImageAction" method="search">
+            <result name="list">/WEB-INF/page/frontImage/list.jsp</result>
+        </action>
+        <!--SEO相关功能-->
+        <action name="showWebTitle" class="basicInfoAction" method="show">
+            <result name="show">/WEB-INF/page/base/showWebTitle.jsp</result>
+        </action>
+        <action name="mdyWebTitle" class="basicInfoAction" method="mdy">
+            <result name="mdy">/WEB-INF/page/base/mdyWebTitle.jsp</result>
+        </action>
+        <action name="updateWebTitle" class="basicInfoAction" method="update">
+            <result name="show">/WEB-INF/page/base/showWebTitle.jsp</result>
+        </action>
+        <action name="updatePassword" class="loginAction" method="update"/>
+    </package>
+</struts>
